@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Browserify</title>
+<style>input{width:50px;}</style>
+</head>
+<body>
+<form>
+<p>
+<input type="text" id="x" value="2"/> * <input type="text" id="y" value="3" /> = <span id="result"></span>
+</p>
+<input type="button" onclick="add()" value="M1"/>
+<input type="button" onclick="add2()" value="M2"/>
+</form>
+<script src="jquery-1.7.1.js"></script>
+<script src="lib/multiply-bundle.js"></script>
+<script>
+function add(){
+var x = parseInt($('#x').val());
+var y = parseInt($('#y').val());
+console.log(x*y);
+$('#result').text(x*y);
+}
+
+var m = require('multiply');
+function add2(){
+var x = parseInt($('#x').val());
+var y = parseInt($('#y').val());
+$('#result').text(m(x,y));
+}
+</script>
+</body>
+</html>
